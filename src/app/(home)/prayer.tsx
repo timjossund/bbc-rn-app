@@ -1,15 +1,15 @@
 import { globalStyles } from "@/styles/global";
 import { ScrollView, Text } from "react-native";
 
-const latest = () => {
+const prayer = () => {
   return (
     <ScrollView
       style={globalStyles.container}
       contentContainerStyle={globalStyles.scrollContent}
     >
-      <Text>Latest Updates</Text>
+      <Text style={globalStyles.fontColorLight}>Prayer List</Text>
     </ScrollView>
   );
 };
 
-export default latest;
+export default prayer;

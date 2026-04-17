@@ -36,4 +36,7 @@ export const globalStyles = StyleSheet.create({
     color: "#fff",
     fontSize: 24,
   },
+  fontColorLight: {
+    color: "#fff",
+  },
 });

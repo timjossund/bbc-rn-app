@@ -1,15 +1,15 @@
 import { globalStyles } from "@/styles/global";
 import { ScrollView, Text } from "react-native";
 
-const prayer = () => {
+const families = () => {
   return (
     <ScrollView
       style={globalStyles.container}
       contentContainerStyle={globalStyles.scrollContent}
     >
-      <Text>Prayer List</Text>
+      <Text style={globalStyles.fontColorLight}>Families</Text>
     </ScrollView>
   );
 };
 
-export default prayer;
+export default families;

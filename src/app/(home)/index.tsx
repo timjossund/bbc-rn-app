@@ -7,7 +7,7 @@ export default function Index() {
       style={globalStyles.container}
       contentContainerStyle={globalStyles.scrollContent}
     >
-      <Text>DUDE</Text>
+      <Text style={globalStyles.fontColorLight}>Latest Post Feed</Text>
       {/* <Link href="/families" style={globalStyles.button}>
         <Text style={globalStyles.buttonText}>Go to Families List</Text>
       </Link>
