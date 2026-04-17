@@ -61,4 +61,29 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
   },
+  homePostCard: {
+    backgroundColor: "#393939",
+    paddingBottom: 20,
+    marginTop: 20,
+    width: "90%",
+    borderRadius: 10,
+  },
+  homePostCardHeader: {
+    backgroundColor: "#497483",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    marginBottom: 20,
+  },
+  homePostCardTitle: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  homePostCardBody: {
+    color: "#fff",
+    fontSize: 16,
+    paddingHorizontal: 20,
+  },
 });
