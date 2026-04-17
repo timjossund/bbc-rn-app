@@ -39,4 +39,26 @@ export const globalStyles = StyleSheet.create({
   fontColorLight: {
     color: "#fff",
   },
+  postCard: {
+    backgroundColor: "#2e2e2e",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    marginTop: 20,
+    width: "90%",
+    borderRadius: 10,
+    borderLeftWidth: 5,
+    borderLeftColor: "#497483",
+  },
+  fontColorLightBold: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  fontColorLightBoldMedium: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+    marginBottom: 10,
+  },
 });

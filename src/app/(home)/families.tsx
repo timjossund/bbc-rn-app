@@ -1,13 +1,38 @@
 import { globalStyles } from "@/styles/global";
-import { ScrollView, Text } from "react-native";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { ScrollView, Text, View } from "react-native";
+
+
 
 const families = () => {
+  const [families, setFamilies] = useState([]);
+  const [familyMembers, setFamilyMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchFamilies = async () => {
+      const response = await axios.get("http://bbc-conway-api.test/api/families");
+      setFamilies(response.data);
+    };
+    fetchFamilies();
+    const familyMembers = async () => {
+      const response = await axios.get("http://bbc-conway-api.test/api/members");
+      setFamilyMembers(response.data);
+    };
+    familyMembers();
+  }, []);
+
   return (
     <ScrollView
       style={globalStyles.container}
       contentContainerStyle={globalStyles.scrollContent}
     >
-      <Text style={globalStyles.fontColorLight}>Families</Text>
+      {families.map((family) => (
+        <View key={family.id} style={globalStyles.postCard}>
+          <Text style={globalStyles.fontColorLightBoldMedium}>{family.name}</Text>
+          <Text style={globalStyles.fontColorLight}>{familyMembers.filter((member) => member.family_id === family.id).map((member) => member.name).join(", ")}</Text>
+        </View>
+      ))}
     </ScrollView>
   );
 };

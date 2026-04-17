@@ -1,22 +1,31 @@
 import { globalStyles } from "@/styles/global";
-import { ScrollView, Text } from "react-native";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { ScrollView, Text, View } from "react-native";
 
 export default function Index() {
-  return (
-    <ScrollView
-      style={globalStyles.container}
-      contentContainerStyle={globalStyles.scrollContent}
-    >
-      <Text style={globalStyles.fontColorLight}>Latest Post Feed</Text>
-      {/* <Link href="/families" style={globalStyles.button}>
-        <Text style={globalStyles.buttonText}>Go to Families List</Text>
-      </Link>
-      <Link href="/prayer" style={globalStyles.button}>
-        <Text style={globalStyles.buttonText}>Go to Prayer List</Text>
-      </Link>
-      <Link href="/latest" style={globalStyles.button}>
-        <Text style={globalStyles.buttonText}>Go to Latest Updates</Text>
-      </Link> */}
-    </ScrollView>
-  );
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await axios.get("http://bbc-conway-api.test/api/posts");
+            setPosts(response.data);
+        };
+        fetchPosts();
+    }, []);
+
+    return (
+        <ScrollView
+            style={globalStyles.container}
+            contentContainerStyle={globalStyles.scrollContent}
+        >
+            {posts.map((post) => (
+                <View key={post.id} style={globalStyles.postCard}>
+                    <Text style={globalStyles.fontColorLightBold}>{post.title}</Text>
+                    <Text style={globalStyles.fontColorLight}>{post.body}</Text>
+                </View>
+            ))}
+        </ScrollView>
+    );
 }
